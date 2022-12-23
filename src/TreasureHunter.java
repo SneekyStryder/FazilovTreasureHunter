@@ -13,7 +13,7 @@ public class TreasureHunter
     private Town currentTown;
     private Hunter hunter;
     private boolean hardMode;
-    private boolean easyMode;
+    private static boolean easyMode; // Ticket 2
 
     //Constructor
     /**
@@ -25,7 +25,11 @@ public class TreasureHunter
         currentTown = null;
         hunter = null;
         hardMode = false;
-        easyMode = false;
+        easyMode = false;   // Ticket 2
+    }
+
+    public static boolean isEasyMode() {       // Ticket 2
+        return easyMode;                // Ticket 2
     }
 
     // starts the game; this is the only public method
@@ -51,15 +55,15 @@ public class TreasureHunter
         // set hunter instance variable
         hunter = new Hunter(name, 10);
 
-        System.out.print("Hard, Regular, or Easy Mode? (H/R/E): ");
-        String mode = scanner.nextLine();
-        if (mode.equals("H") || mode.equals("h"))
+        System.out.print("Hard, Regular, or Easy Mode? (H/R/E): "); // Ticket 2
+        String mode = scanner.nextLine();                           // Ticket 2
+        if (mode.equals("H") || mode.equals("h"))                   // Ticket 2
         {
-            hardMode = true;
+            hardMode = true;                                        // Ticket 2
         }
-        else if (mode.equals("E") || mode.equals("e")) {
-            easyMode = true;
-            hunter.changeGold(10);
+        else if (mode.equals("E") || mode.equals("e")) {            // Ticket 2
+            easyMode = true;                                        // Ticket 2
+            hunter.changeGold(10);                         // Ticket 2
         }
     }
 
@@ -78,10 +82,10 @@ public class TreasureHunter
             // and the town is "tougher"
             toughness = 0.75;
         }
-        else if (easyMode)
+        else if (easyMode)          // Ticket 2
         {
-            markdown = 0.2;
-            toughness = 0.2;
+            markdown = 0.2;         // Ticket 2
+            toughness = 0.2;        // Ticket 2
         }
 
 
@@ -153,8 +157,7 @@ public class TreasureHunter
         else if (choice.equals("L") || choice.equals("l"))
         {
             currentTown.lookForTrouble();
-        }
-        else if (choice.equals("X") || choice.equals("x"))
+        } else if (choice.equals("X") || choice.equals("x"))
         {
             System.out.println("Fare thee well, " + hunter.getHunterName() + "!");
         }

@@ -13,6 +13,7 @@ public class Shop
     private static final int MACHETE_COST = 6;
     private static final int HORSE_COST = 12;
     private static final int BOAT_COST = 20;
+    private static final int PICKS_COST = 10;   // Ticket 8
 
     // instance variables
     private double markdown;
@@ -41,8 +42,8 @@ public class Shop
             System.out.println(inventory());
             System.out.print("What're you lookin' to buy? ");
             String userResponse = scanner.nextLine();
-            String firstLetter = userResponse.toUpperCase();
-            String item = firstLetter.substring(0, 1) + userResponse.substring(1);
+            String firstLetter = userResponse.toUpperCase();    // Ticket 3
+            String item = firstLetter.substring(0, 1) + userResponse.substring(1);  // Ticket 3
             int cost = checkMarketPrice(item, true);
             if (cost == 0)
             {
@@ -91,6 +92,7 @@ public class Shop
         String str = "Water: " + WATER_COST + " gold\n";
         str += "Rope: " + ROPE_COST + " gold\n";
         str += "Machete: " + MACHETE_COST + " gold\n";
+        str += "Picks: " + PICKS_COST + " gold\n";  // Ticket 8
         str += "Horse: " + HORSE_COST + " gold\n";
         str += "Boat: " + BOAT_COST + " gold\n";
 
@@ -168,6 +170,10 @@ public class Shop
         else if (item.equals("Machete") || item.equals("machete"))
         {
             return MACHETE_COST;
+        }
+        else if (item.equals("Picks") || item.equals("picks"))  // Ticket 8
+        {
+            return PICKS_COST;  // Ticket 8
         }
         else if (item.equals("Horse") || item.equals("horse"))
         {

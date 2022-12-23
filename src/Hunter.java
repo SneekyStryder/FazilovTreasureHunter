@@ -17,7 +17,7 @@ public class Hunter
     /**
      * The base constructor of a Hunter assigns the name to the hunter and an empty kit.
      *
-     * @param name The hunter's name.
+     * @param hunterName The hunter's name.
      */
     public Hunter(String hunterName, int startingGold)
     {

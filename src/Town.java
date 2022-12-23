@@ -15,8 +15,8 @@ public class Town
     //Constructor
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
-     * @param s The town's shoppe.
-     * @param t The surrounding terrain.
+     * @param shop The town's shoppe.
+     * @param toughness The surrounding terrain.
      */
     public Town(Shop shop, double toughness)
     {
@@ -40,7 +40,7 @@ public class Town
 
     /**
      * Assigns an object to the Hunter in town.
-     * @param h The arriving Hunter.
+     * @param hunter The arriving Hunter.
      */
     public void hunterArrives(Hunter hunter)
     {
@@ -110,8 +110,17 @@ public class Town
         else
         {
             printMessage = "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n";
-            int goldDiff = (int)(Math.random() * 10) + 1;
-            if (Math.random() > noTroubleChance)
+            double chance = 0;
+            int goldDiff = 0;
+            if (TreasureHunter.isEasyMode()) {                      // Ticket 2
+                goldDiff = ((int) (Math.random() * 10) + 1) + 7;    // Ticket 2
+                chance = Math.random() + 0.4;                       // Ticket 2
+            }
+            else {
+                goldDiff = (int) (Math.random() * 10) + 1;
+                chance = Math.random();
+            }
+            if (chance > noTroubleChance)
             {
                 printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
                 printMessage += "\nYou won the brawl and receive " +  goldDiff + " gold.";
@@ -154,6 +163,10 @@ public class Town
         else if (rnd < .8)
         {
             return new Terrain("Desert", "Water");
+        }
+        else if (rnd < .9)                                      // Ticket 8
+        {
+            return new Terrain("Canyon", "Picks");  // Ticket 8
         }
         else
         {
