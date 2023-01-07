@@ -14,6 +14,7 @@ public class TreasureHunter
     private Hunter hunter;
     private boolean hardMode;
     private static boolean easyMode; // Ticket 2
+    private static boolean cheatMode;  // Ticket 5
 
     //Constructor
     /**
@@ -28,9 +29,9 @@ public class TreasureHunter
         easyMode = false;   // Ticket 2
     }
 
-    public static boolean isEasyMode() {       // Ticket 2
-        return easyMode;                // Ticket 2
-    }
+    public static boolean isEasyMode() {return easyMode;}       // Ticket 2
+
+    public static boolean isCheatMode() {return cheatMode;}     // Ticket 5
 
     // starts the game; this is the only public method
     public void play()
@@ -64,6 +65,10 @@ public class TreasureHunter
         else if (mode.equals("E") || mode.equals("e")) {            // Ticket 2
             easyMode = true;                                        // Ticket 2
             hunter.changeGold(10);                         // Ticket 2
+        }
+        else if (mode.equals("17")) {                              // Ticket 5
+            cheatMode = true;                                      // Ticket 5
+            Shop.setToCheatMode();                                 // Ticket 5
         }
     }
 
@@ -116,7 +121,7 @@ public class TreasureHunter
         Scanner scanner = new Scanner(System.in);
         String choice = "";
 
-        while (!(choice.equals("X") || choice.equals("x")))
+        while (!(choice.equals("X") || choice.equals("x")) && !hunter.win() && !hunter.loseGame())  // Ticket 1
         {
             System.out.println();
             System.out.println(currentTown.getLatestNews());
@@ -127,6 +132,7 @@ public class TreasureHunter
             System.out.println("(S)ell something at the shop.");
             System.out.println("(M)ove on to a different town.");
             System.out.println("(L)ook for trouble!");
+            System.out.println("(H)unt for treasure!");             // Ticket 1
             System.out.println("Give up the hunt and e(X)it.");
             System.out.println();
             System.out.print("What's your next move? ");
@@ -157,7 +163,25 @@ public class TreasureHunter
         else if (choice.equals("L") || choice.equals("l"))
         {
             currentTown.lookForTrouble();
-        } else if (choice.equals("X") || choice.equals("x"))
+            if (hunter.loseGame()) {                                                // Ticket 1
+                System.out.println(currentTown.getLatestNews());                    // Ticket 1
+                System.out.println("You lost all your money! You lose!");           // Ticket 1
+            }
+        }
+        else if (choice.equals("H") || choice.equals("h")) {                        // Ticket 1
+            if (currentTown.isTreasureHunted()) {                                   // Ticket 1
+                System.out.println("You already hunted for treasure here!");        // Ticket 1
+            }
+            else {                                                                  // Ticket 1
+                currentTown.goTreasureHunting();                                    // Ticket 1
+            }
+            hunter.printTreasures();                                                // Ticket 1
+            if (hunter.win()) {                                                     // Ticket 1
+                System.out.println();                                               // Ticket 1
+                System.out.println("You collected all 3 treasures and you won! Congratulations " + hunter.getHunterName() + "!");   // Ticket 1
+            }
+        }
+        else if (choice.equals("X") || choice.equals("x"))
         {
             System.out.println("Fare thee well, " + hunter.getHunterName() + "!");
         }

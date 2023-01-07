@@ -12,6 +12,8 @@ public class Hunter
     private String hunterName;
     private String kit;
     private int gold;
+    private int[] treasures = {};       // Ticket 1
+    public boolean lose = false;        // Ticket 1
 
     //Constructor
     /**
@@ -174,6 +176,86 @@ public class Hunter
             printableKit = printableKit.substring(0, index) + space + printableKit.substring(index + 1);
         }
         return printableKit;
+    }
+
+    public void printTreasures() {                                  // Ticket 1
+        if (treasures.length == 0) {                                // Ticket 1
+            System.out.println("You have no treasure!");            // Ticket 1
+        }
+        else {                                                      // Ticket 1
+            System.out.print("You have these treasures:  ");        // Ticket 1
+            for (int i = 0; i < treasures.length; i++) {            // Ticket 1
+                if (treasures[i] == 1) {                            // Ticket 1
+                    System.out.print("Sapphire  ");                 // Ticket 1
+                }
+                else if (treasures[i] == 2) {                       // Ticket 1
+                    System.out.print("Emerald  ");                  // Ticket 1
+                }
+                else if (treasures[i] == 3) {                       // Ticket 1
+                    System.out.print("Diamond  ");                  // Ticket 1
+                }
+            }
+        }
+    }
+
+    public void addTreasure(int treasureNum) {                                      // Ticket 1
+        boolean found = false;                                                      // Ticket 1
+        for (int i = 0; i < treasures.length; i++) {                                // Ticket 1
+            if (treasures[i] == treasureNum) {                                      // Ticket 1
+                found = true;                                                       // Ticket 1
+            }
+        }
+        if (found) {}                                                               // Ticket 1
+        else {
+            treasures = addElementInt(treasures.length, treasures, treasureNum);    // Ticket 1
+        }
+    }
+
+    public boolean win() {                                      // Ticket 1
+        boolean hasSapphire = false;                            // Ticket 1
+        boolean hasEmerald = false;                             // Ticket 1
+        boolean hasDiamond = false;                             // Ticket 1
+        for (int i = 0; i < treasures.length; i++) {            // Ticket 1
+            if (treasures[i] == 1) {                            // Ticket 1
+                hasSapphire = true;                             // Ticket 1
+            }
+            else if (treasures[i] == 2) {                       // Ticket 1
+                hasEmerald = true;                              // Ticket 1
+            }
+            else if (treasures[i] == 3) {                       // Ticket 1
+                hasDiamond = true;                              // Ticket 1
+            }
+        }
+        if (hasSapphire && hasEmerald && hasDiamond) {          // Ticket 1
+            return true;                                        // Ticket 1
+        }
+        else {                                                  // Ticket 1
+            return false;                                       // Ticket 1
+        }
+    }
+
+    public boolean loseGame() {                                 // Ticket 1
+        if (lose) {                                             // Ticket 1
+            return true;                                        // Ticket 1
+        }
+        else {                                                  // Ticket 1
+            return false;                                       // Ticket 1
+        }
+    }
+
+    public static int[] addElementInt(int length, int array[], int element)         // Ticket 1
+    {
+        int i;                                                                      // Ticket 1
+
+        // create a new array of size n+1
+        int newarray[] = new int[length + 1];                                       // Ticket 1
+
+        for (i = 0; i < length; i++)                                                // Ticket 1
+            newarray[i] = array[i];                                                 // Ticket 1
+
+        newarray[length] = element;                                                 // Ticket 1
+
+        return newarray;                                                            // Ticket 1
     }
 
     /**

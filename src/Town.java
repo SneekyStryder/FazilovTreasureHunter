@@ -11,6 +11,7 @@ public class Town
     private Terrain terrain;
     private String printMessage;
     private boolean toughTown;
+    private boolean treasureHunted = false;     // Ticket 1
 
     //Constructor
     /**
@@ -116,6 +117,10 @@ public class Town
                 goldDiff = ((int) (Math.random() * 10) + 1) + 7;    // Ticket 2
                 chance = Math.random() + 0.4;                       // Ticket 2
             }
+            else if (TreasureHunter.isCheatMode()) {                // Ticket 5
+                goldDiff = 100;                                     // Ticket 5
+                chance = 100;                                       // Ticket 5
+            }
             else {
                 goldDiff = (int) (Math.random() * 10) + 1;
                 chance = Math.random();
@@ -132,8 +137,35 @@ public class Town
                 printMessage += "\nYou lost the brawl and pay " +  goldDiff + " gold.";
                 hunter.changeGold(-1 * goldDiff);
             }
+            if (hunter.getGold() <= 0) {                            // Ticket 1
+                hunter.lose = true;                                 // Ticket 1
+            }
         }
     }
+
+    public void goTreasureHunting() {                               // Ticket 1
+        int random = (int) ((Math.random() * 4) + 1);               // Ticket 1
+        if (random == 1) {                                          // Ticket 1
+            System.out.println("You found a Sapphire!");            // Ticket 1
+            hunter.addTreasure(1);                      // Ticket 1
+        }
+        else if (random == 2) {                                     // Ticket 1
+            System.out.println("You found an Emerald!");            // Ticket 1
+            hunter.addTreasure(2);                      // Ticket 1
+        }
+        else if (random == 3) {                                     // Ticket 1
+            System.out.println("You found a Diamond!");             // Ticket 1
+            hunter.addTreasure(3);                      // Ticket 1
+        }
+        else if (random == 4) {                                     // Ticket 1
+            System.out.println("You found nothing!");               // Ticket 1
+        }
+        treasureHunted = true;                                      // Ticket 1
+    }
+
+    public boolean isTreasureHunted() {
+        return treasureHunted;
+    }    // Ticket 1
 
     public String toString()
     {

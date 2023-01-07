@@ -8,12 +8,12 @@ import java.util.Scanner;
 public class Shop
 {
     // constants
-    private static final int WATER_COST = 2;
-    private static final int ROPE_COST = 4;
-    private static final int MACHETE_COST = 6;
-    private static final int HORSE_COST = 12;
-    private static final int BOAT_COST = 20;
-    private static final int PICKS_COST = 10;   // Ticket 8
+    private static int WATER_COST = 2;
+    private static int ROPE_COST = 4;
+    private static int MACHETE_COST = 6;
+    private static int HORSE_COST = 12;
+    private static int BOAT_COST = 20;
+    private static int PICKS_COST = 10;   // Ticket 8
 
     // instance variables
     private double markdown;
@@ -24,6 +24,15 @@ public class Shop
     {
         this.markdown = markdown;
         customer = null;
+    }
+
+    public static void setToCheatMode() {       // Ticket 5
+        WATER_COST = 1;                         // Ticket 5
+        ROPE_COST = 1;                          // Ticket 5
+        MACHETE_COST = 1;                       // Ticket 5
+        HORSE_COST = 1;                         // Ticket 5
+        BOAT_COST = 1;                          // Ticket 5
+        PICKS_COST = 1;                         // Ticket 5
     }
 
     /** method for entering the shop
