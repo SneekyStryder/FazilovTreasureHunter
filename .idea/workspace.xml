@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a20ba37-0b23-4496-a985-e72a3407e1df" name="Changes" comment="period end (day 3)&#10;Ticket 2 Done?">
-      <change afterPath="$PROJECT_DIR$/src/Tester.java" afterDir="false" />
+    <list default="true" id="8a20ba37-0b23-4496-a985-e72a3407e1df" name="Changes" comment="most tickets done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Town.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Town.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TreasureHunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TreasureHunter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,14 +31,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/BT_3W2_28/IdeaProjects/FazilovTreasureHunter",
-    "settings.editor.selected.configurable": "power.mode.ii"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/BT_3W2_28/IdeaProjects/FazilovTreasureHunter&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;power.mode.ii&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.TreasureHunterRunner">
     <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Tester" />
@@ -95,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671729019110</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="most tickets done">
+      <created>1673132481735</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673132481735</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -125,6 +128,7 @@
     <MESSAGE value="period end (day 2)" />
     <MESSAGE value="period end (day 2)&#10;Ticket 3 Done" />
     <MESSAGE value="period end (day 3)&#10;Ticket 2 Done?" />
-    <option name="LAST_COMMIT_MESSAGE" value="period end (day 3)&#10;Ticket 2 Done?" />
+    <MESSAGE value="most tickets done" />
+    <option name="LAST_COMMIT_MESSAGE" value="most tickets done" />
   </component>
 </project>

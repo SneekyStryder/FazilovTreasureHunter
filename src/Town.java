@@ -111,6 +111,7 @@ public class Town
         else
         {
             printMessage = "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n";
+            printMessage += fightAnimation();                       // Ticket 4
             double chance = 0;
             int goldDiff = 0;
             if (TreasureHunter.isEasyMode()) {                      // Ticket 2
@@ -141,6 +142,23 @@ public class Town
                 hunter.lose = true;                                 // Ticket 1
             }
         }
+    }
+
+    public String fightAnimation() {                                // Ticket 4
+        int random = (int) ((Math.random() * 4) + 1);               // Ticket 4
+        if (random == 1) {                                          // Ticket 4
+            return "(ノಠ益ಠ)ノ彡┻━┻    ლ(ಠ益ಠლ)\n";                // Ticket 4
+        }                                                           // Ticket 4
+        else if (random == 2) {                                     // Ticket 4
+            return "(ง'̀-'́)ง     ᕦ(ò_óˇ)ᕤ\n";                       // Ticket 4
+        }                                                           // Ticket 4
+        else if (random == 3) {                                     // Ticket 4
+            return "ಠ_ಠ     ლ(▀̿Ĺ̯̿▀̿ლ)\n";                       // Ticket 4
+        }                                                           // Ticket 4
+        else if (random == 4) {                                     // Ticket 4
+            return "(◣_◢)     ━╤デ╦︻(▀̿Ĺ̯̿▀̿)\n";                  // Ticket 4
+        }                                                           // Ticket 4
+        return "0";                                                 // Ticket 4
     }
 
     public void goTreasureHunting() {                               // Ticket 1
